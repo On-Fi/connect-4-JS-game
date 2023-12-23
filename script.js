@@ -3,6 +3,7 @@ const COLS = 7;
 let board = [];
 let currentPlayer = 'red';
 let gameWon = false;
+let darkMode = false;
 
 function initializeBoard() {
     board = [];
@@ -36,6 +37,8 @@ function drawBoard() {
             boardElement.appendChild(cell);
         }
     }
+
+    updateDarkMode();
 }
 
 function handleCellClick(event) {
@@ -101,6 +104,16 @@ function checkDirection(row, col, rowChange, colChange) {
 function restartGame() {
     initializeBoard();
     currentPlayer = 'red';
+}
+
+function toggleDarkMode() {
+    darkMode = !darkMode;
+    updateDarkMode();
+}
+
+function updateDarkMode() {
+    document.body.style.backgroundColor = darkMode ? '#222' : '#fff';
+    document.body.style.color = darkMode ? '#fff' : '#000';
 }
 
 initializeBoard();
