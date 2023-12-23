@@ -6,7 +6,6 @@ const COLS = 7;
 let board = [];
 let currentPlayer = 'red';
 let gameWon = false;
-let darkMode = false;
 
 // Function to initialize the game board and display
 function initializeBoard() {
@@ -32,7 +31,6 @@ function drawBoard() {
     const header = document.getElementById('header');
     header.innerHTML = `
         <button onclick="restartGame()">Restart Game</button>
-        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
         <div id="playerTurn"></div>
     `;
 
@@ -155,34 +153,6 @@ function restartGame() {
     initializeBoard();
 }
 
-// Function to toggle dark mode
-function toggleDarkMode() {
-    // Invert the darkMode flag and update the visual style
-    darkMode = !darkMode;
-    updateDarkMode();
-}
-
-// Function to update the visual style for dark mode
-function updateDarkMode() {
-    const body = document.body;
-    body.style.backgroundColor = darkMode ? '#222' : '#fff';
-    body.style.color = darkMode ? '#fff' : '#000';
-
-    // Update the background color of each cell based on the player's disc color
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach(cell => {
-        const row = cell.dataset.row;
-        const col = cell.dataset.col;
-
-        if (board[row][col]) {
-            cell.style.backgroundColor = getCellColor(row, col);
-        }
-    });
-
-    // Update the player turn display with appropriate text color
-    updatePlayerTurn();
-}
-
 // Function to update the player turn display and show the winner if the game is won
 function updatePlayerTurn() {
     const playerTurnElement = document.getElementById('playerTurn');
@@ -192,11 +162,7 @@ function updatePlayerTurn() {
         playerTurnElement.textContent = `${currentPlayer.toUpperCase()} wins!`;
     } else {
         // If the game is still ongoing, update the turn information
-        const playerColor = darkMode
-            ? currentPlayer === 'red' ? 'green' : 'blue'
-            : currentPlayer;
-
-        playerTurnElement.textContent = `Current Turn: ${playerColor.toUpperCase()}`;
+        playerTurnElement.textContent = `Current Turn: ${currentPlayer.toUpperCase()}`;
     }
 }
 
