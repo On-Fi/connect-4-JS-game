@@ -1,8 +1,9 @@
+/* Reset default styles and set up styles for the headline */
 h1 {
-    font-size: 3.5em; /* Set the font size to be twice the default size */
-    margin: 1px; /* Set the margin */
-    margin-top: -50px; /* Set the top margin to create space below the app display */
-    padding: 10px; /* Set the padding */
+    font-size: 3.5em;
+    margin: 1px;
+    margin-top: -50px;
+    padding: 10px; 
 }
 
 /* Reset default styles and set up the base styles for the body */
@@ -15,32 +16,32 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #3498db; /* Set background color for the entire page */
+    background-color: #3498db; 
 }
 
 /* Dark mode styles */
 .dark-mode {
-    background-color: #2c3e50; /* Dark background color */
-    color: #ecf0f1; /* Light text color */
+    background-color: #2c3e50; 
+    color: #ecf0f1;
 }
 
 .dark-mode #board {
-    background-color: #000; /* Black background color for the board */
+    background-color: #000; 
 }
 
 
 .dark-mode .cell {
-    background-color: #333; /* Dark grey background color for the cells */
-    border: 2px solid #ecf0f1; /* Light border color for the cells */
+    background-color: #333; 
+    border: 2px solid #ecf0f1;
 }
 
 .dark-mode button {
-    background-color: #555; /* Dark grey background color for buttons in dark mode */
-    color: #ecf0f1; /* Light text color for buttons in dark mode */
+    background-color: #555; 
+    color: #ecf0f1; 
 }
 
 .dark-mode button:hover {
-    background-color: #777; /* Change background color on hover in dark mode */
+    background-color: #777; 
 }
 
 /* Styles for the game board */
@@ -48,10 +49,10 @@ body {
     display: grid;
     grid-template-columns: repeat(7, 80px);
     grid-gap: 10px;
-    background-color: #ecf0f1; /* Set background color for the game board */
+    background-color: #ecf0f1; 
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); 
 }
 
 /* Styles for each cell in the game board */
@@ -59,18 +60,18 @@ body {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid #2c3e50; /* Set border color for the cell */
-    background-color: #ecf0f1; /* Set default background color for the cell */
+    border: 2px solid #2c3e50;
+    background-color: #ecf0f1; 
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Add a smooth transition on hover */
+    transition: background-color 0.3s ease-in-out; 
 }
 
 /* Hover effect for each cell */
 .cell:hover {
-    background-color: #bdc3c7; /* Change background color on hover */
+    background-color: #bdc3c7; 
 }
 
 /* Additional overlay effect on hover */
@@ -79,7 +80,7 @@ body {
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay */
+    background-color: rgba(255, 255, 255, 0.7); 
     position: absolute;
 }
 
@@ -94,17 +95,17 @@ button {
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
-    background-color: #2ecc71; /* Set background color for buttons */
-    color: #ffffff; /* Set text color for buttons */
+    background-color: #2ecc71; 
+    color: #ffffff; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out; /* Add a smooth transition on hover */
+    transition: background-color 0.3s ease-in-out; 
 }
 
 /* Hover effect for buttons */
 button:hover {
-    background-color: #27ae60; /* Change background color on hover */
+    background-color: #27ae60; 
 }
 
 /*
@@ -117,7 +118,7 @@ Disc styles for players (red and yellow)
     border-radius: 50%;
     margin-right: 2px;
     position: relative;
-    bottom: -5px; / * Adjust the bottom position * /
+    bottom: -5px; 
 }
 
 / * Styles for the red player's disc * /
