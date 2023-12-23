@@ -19,20 +19,11 @@ function initializeBoard() {
 
 // Function to draw the current state of the game board and header
 function drawBoard() {
-    // Get the HTML elements representing the game board and header
+    // Get the HTML element representing the game board
     const boardElement = document.getElementById('board');
-    const playerTurnElement = document.getElementById('playerTurn');
 
-    // Clear the existing content of the board and header elements
+    // Clear the existing content of the board element
     boardElement.innerHTML = '';
-    playerTurnElement.textContent = '';
-
-    // Draw the header with buttons and current player display
-    const header = document.getElementById('header');
-    header.innerHTML = `
-        <button onclick="restartGame()">Restart Game</button>
-        <div id="playerTurn"></div>
-    `;
 
     // Iterate through each cell on the board and create corresponding HTML elements
     for (let row = 0; row < ROWS; row++) {
@@ -54,9 +45,6 @@ function drawBoard() {
             boardElement.appendChild(cell);
         }
     }
-
-    // Update the player turn display with appropriate text color
-    updatePlayerTurn();
 }
 
 // Function to determine the color of a cell based on the player's disc color
@@ -138,10 +126,6 @@ function checkDirection(row, col, rowChange, colChange) {
     return count >= 4;
 }
 
-    // No winning sequence found in this direction
-    return false;
-}
-
 // Function to restart the game
 function restartGame() {
     // Reset the gameWon flag and switch back to the initial player
@@ -167,3 +151,4 @@ function updatePlayerTurn() {
 
 // Initialize the game board and display when the page loads
 initializeBoard();
+</script>
