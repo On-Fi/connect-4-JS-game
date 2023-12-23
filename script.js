@@ -7,7 +7,6 @@ let darkMode = false;
 
 function initializeBoard() {
     board = [];
-    gameWon = false;
 
     for (let row = 0; row < ROWS; row++) {
         board[row] = [];
@@ -35,6 +34,7 @@ function drawBoard() {
                 cell.style.backgroundColor = board[row][col];
             }
 
+            cell.addEventListener('click', handleCellClick);
             boardElement.appendChild(cell);
         }
     }
@@ -102,6 +102,8 @@ function checkDirection(row, col, rowChange, colChange) {
 }
 
 function restartGame() {
+    gameWon = false;
+    currentPlayer = 'red';
     initializeBoard();
 }
 
