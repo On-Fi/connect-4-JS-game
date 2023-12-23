@@ -8,7 +8,7 @@ let currentPlayer = 'red';
 let gameWon = false;
 let darkMode = false;
 
-// Function to initialize the game board
+// Function to initialize the game board and display
 function initializeBoard() {
     // Create an empty 2D array to represent the game board
     board = [];
@@ -26,13 +26,23 @@ function initializeBoard() {
     updatePlayerTurn();
 }
 
-// Function to draw the current state of the game board
+// Function to draw the current state of the game board and header
 function drawBoard() {
-    // Get the HTML element representing the game board
+    // Get the HTML elements representing the game board and header
     const boardElement = document.getElementById('board');
+    const playerTurnElement = document.getElementById('playerTurn');
 
-    // Clear the existing content of the board element
+    // Clear the existing content of the board and header elements
     boardElement.innerHTML = '';
+    playerTurnElement.textContent = '';
+
+    // Draw the header with buttons and current player display
+    const header = document.getElementById('header');
+    header.innerHTML = `
+        <button onclick="restartGame()">Restart Game</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <div id="playerTurn"></div>
+    `;
 
     // Iterate through each cell on the board and create corresponding HTML elements
     for (let row = 0; row < ROWS; row++) {
@@ -54,6 +64,9 @@ function drawBoard() {
             boardElement.appendChild(cell);
         }
     }
+
+    // Update the player turn display with appropriate text color
+    updatePlayerTurn();
 }
 
 // Function to determine the color of a cell based on the player's disc color
