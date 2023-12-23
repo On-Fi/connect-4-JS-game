@@ -113,8 +113,23 @@ function toggleDarkMode() {
 }
 
 function updateDarkMode() {
-    document.body.style.backgroundColor = darkMode ? '#222' : '#fff';
-    document.body.style.color = darkMode ? '#fff' : '#000';
+    const body = document.body;
+    body.style.backgroundColor = darkMode ? '#222' : '#fff';
+    body.style.color = darkMode ? '#fff' : '#000';
+
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        const row = cell.dataset.row;
+        const col = cell.dataset.col;
+
+        if (board[row][col] === 'red') {
+            cell.style.backgroundColor = darkMode ? 'green' : 'red';
+        } else if (board[row][col] === 'yellow') {
+            cell.style.backgroundColor = darkMode ? 'blue' : 'yellow';
+        }
+    });
+
+    updatePlayerTurn();
 }
 
 function updatePlayerTurn() {
