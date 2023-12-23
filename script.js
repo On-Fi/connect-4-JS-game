@@ -141,7 +141,11 @@ function updateDarkMode() {
 
 function updatePlayerTurn() {
     const playerTurnElement = document.getElementById('playerTurn');
-    playerTurnElement.textContent = `Current Turn: ${currentPlayer.toUpperCase()}`;
+    const playerColor = darkMode
+        ? currentPlayer === 'red' ? 'green' : 'blue'
+        : currentPlayer;
+
+    playerTurnElement.textContent = `Current Turn: ${playerColor.toUpperCase()}`;
 }
 
 initializeBoard();
