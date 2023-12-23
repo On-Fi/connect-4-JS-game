@@ -129,7 +129,7 @@ function updatePlayerTurn() {
     const headerElement = document.querySelector('h1');
 
     // Update the turn information
-    playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
+    // playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
 
     // Change the color of the h1 element based on the current player's turn
     headerElement.style.color = currentPlayer === 'red' ? 'red' : 'yellow';
