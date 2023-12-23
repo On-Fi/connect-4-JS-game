@@ -7,7 +7,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #ecf0f1;
+    background-color: #3498db;
 }
 
 #board {
@@ -37,6 +37,15 @@ body {
     background-color: #bdc3c7;
 }
 
+.cell:hover::after {
+    content: '';
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    position: absolute;
+}
+
 #header {
     margin-bottom: 20px;
     text-align: center;
@@ -57,3 +66,21 @@ button {
 button:hover {
     background-color: #27ae60;
 }
+
+.red-disc,
+.yellow-disc {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.red-disc {
+    background-color: #e74c3c;
+}
+
+.yellow-disc {
+    background-color: #f39c12;
+}
+

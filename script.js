@@ -142,10 +142,10 @@ function updatePlayerTurn() {
 
     if (gameWon) {
         // If the game is won, display the winner
-        playerTurnElement.textContent = `${currentPlayer.toUpperCase()} wins!`;
+        playerTurnElement.innerHTML = `${currentPlayer.toUpperCase()} wins!`;
     } else {
         // If the game is still ongoing, update the turn information
-        playerTurnElement.textContent = `Current Turn: ${currentPlayer.toUpperCase()}`;
+        playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
     }
 }
 
