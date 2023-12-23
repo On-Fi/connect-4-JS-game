@@ -126,9 +126,13 @@ function restartGame() {
 // Function to update the player turn display
 function updatePlayerTurn() {
     const playerTurnElement = document.getElementById('playerTurn');
+    const headerElement = document.querySelector('h1');
 
     // Update the turn information
     playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
+
+    // Change the color of the h1 element based on the current player's turn
+    headerElement.style.color = currentPlayer === 'red' ? 'red' : 'yellow';
 }
 
 // Initialize the game board and display when the page loads
