@@ -1,3 +1,10 @@
+h1 {
+    font-size: 3.5em; /* Set the font size to be twice the default size */
+    margin: 1px; /* Set the margin */
+    margin-top: -50px; /* Set the top margin to create space below the app display */
+    padding: 10px; /* Set the padding */
+}
+
 /* Reset default styles and set up the base styles for the body */
 body {
     font-family: 'Arial', sans-serif;
