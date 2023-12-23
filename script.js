@@ -7,6 +7,13 @@ let board = [];
 let currentPlayer = 'red';
 let gameWon = false;
 
+// Function to restart the game
+function restartGame() {
+    initializeBoard(); // Call the function to initialize the game board
+    gameWon = false; // Reset the gameWon flag
+    updatePlayerTurn(); // Update the player turn display
+}
+
 // Function to toggle dark mode
 function toggleDarkMode() {
     const body = document.body;
