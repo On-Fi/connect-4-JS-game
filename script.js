@@ -105,7 +105,7 @@ function checkForWin(row, col) {
     ) {
         // Display a winning message and set the gameWon flag
         gameWon = true;
-        alert(`${currentPlayer.toUpperCase()} wins!`);
+        updatePlayerTurn(); // Update to show the winner
     }
 }
 
@@ -180,17 +180,21 @@ function updateDarkMode() {
     updatePlayerTurn();
 }
 
-// Function to update the player turn display
+// Function to update the player turn display and show the winner if the game is won
 function updatePlayerTurn() {
     const playerTurnElement = document.getElementById('playerTurn');
 
-    // Determine the color of the text based on the player and dark mode
-    const playerColor = darkMode
-        ? currentPlayer === 'red' ? 'green' : 'blue'
-        : currentPlayer;
+    if (gameWon) {
+        // If the game is won, display the winner
+        playerTurnElement.textContent = `${currentPlayer.toUpperCase()} wins!`;
+    } else {
+        // If the game is still ongoing, update the turn information
+        const playerColor = darkMode
+            ? currentPlayer === 'red' ? 'green' : 'blue'
+            : currentPlayer;
 
-    // Update the content and style of the player turn display
-    playerTurnElement.textContent = `Current Turn: ${playerColor.toUpperCase()}`;
+        playerTurnElement.textContent = `Current Turn: ${playerColor.toUpperCase()}`;
+    }
 }
 
 // Initialize the game board and display when the page loads
