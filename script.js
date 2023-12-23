@@ -78,7 +78,9 @@ function handleCellClick(event) {
             board[row][col] = currentPlayer;
 
             // Check for a winning condition after each move
-            checkForWin(row, col);
+            if (checkForWin(row, col)) {
+                gameWon = true;
+            }
 
             // Switch to the other player's turn
             currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
@@ -95,16 +97,12 @@ function handleCellClick(event) {
 
 // Function to check for a winning condition after a move
 function checkForWin(row, col) {
-    if (
+    return (
         checkDirection(row, col, 0, 1) ||  // Horizontal
         checkDirection(row, col, 1, 0) ||  // Vertical
         checkDirection(row, col, 1, 1) ||  // Diagonal /
         checkDirection(row, col, 1, -1)    // Diagonal \
-    ) {
-        // Display a winning message and set the gameWon flag
-        gameWon = true;
-        updatePlayerTurn(); // Update to show the winner
-    }
+    );
 }
 
 // Function to check for a winning sequence in a specific direction
