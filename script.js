@@ -127,7 +127,7 @@ function checkDirection(row, col, rowChange, colChange) {
     const player = board[row][col];
     let count = 1;
 
-    // Check in the positive direction
+    // Check in one direction
     for (let i = 1; i < 4; i++) {
         const newRow = row + i * rowChange;
         const newCol = col + i * colChange;
@@ -139,7 +139,7 @@ function checkDirection(row, col, rowChange, colChange) {
         count++;
     }
 
-    // Check in the negative direction
+    // Check in the opposite direction
     for (let i = 1; i < 4; i++) {
         const newRow = row - i * rowChange;
         const newCol = col - i * colChange;
