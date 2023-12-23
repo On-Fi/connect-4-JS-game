@@ -98,17 +98,17 @@ button:hover {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    margin-right: 5px;
+    margin-right: 2px;
     position: relative;
-    bottom: 5px; /* Adjust the bottom position */
+    bottom: -5px; /* Adjust the bottom position */
 }
 
 /* Styles for the red player's disc */
 .red-disc {
-    background-color: #e74c3c;
+    background-color: #fb2e17;
 }
 
 /* Styles for the yellow player's disc */
 .yellow-disc {
-    background-color: #f39c12;
+    background-color: hsl(74, 100%, 53%);
 }
