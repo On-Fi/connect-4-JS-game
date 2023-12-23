@@ -100,7 +100,8 @@ button:hover {
     background-color: #27ae60; /* Change background color on hover */
 }
 
-/* Disc styles for players (red and yellow) */
+/*
+Disc styles for players (red and yellow)
 .red-disc,
 .yellow-disc {
     display: inline-block;
@@ -109,15 +110,16 @@ button:hover {
     border-radius: 50%;
     margin-right: 2px;
     position: relative;
-    bottom: -5px; /* Adjust the bottom position */
+    bottom: -5px; / * Adjust the bottom position * /
 }
 
-/* Styles for the red player's disc */
+/ * Styles for the red player's disc * /
 .red-disc {
     background-color: #fb2e17;
 }
 
-/* Styles for the yellow player's disc */
+/ * Styles for the yellow player's disc * /
 .yellow-disc {
     background-color: hsl(74, 100%, 53%);
-} 
+}
+*/
