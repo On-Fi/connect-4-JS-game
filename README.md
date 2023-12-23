@@ -7,6 +7,8 @@ this is made out of:
 -CSS  
 -Vanilla JS
 ---
-the cool thing is that the title of the game (CONNECT 4) changes the color,
-if it´s the red players turn to red,and if it´s the yellow players turn to yellow.
+the cool thing is that the title of the game (CONNECT 4) changes it´s color,
+if it´s the red players turn to red,
+and if it´s the yellow players turn to yellow.
 ---
+have fun! :)
