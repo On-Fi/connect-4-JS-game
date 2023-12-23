@@ -5,14 +5,6 @@ const COLS = 7;
 // Initialize an empty game board and other game-related variables
 let board = [];
 let currentPlayer = 'red';
-let gameWon = false;
-
-// Function to restart the game
-function restartGame() {
-    initializeBoard(); // Call the function to initialize the game board
-    gameWon = false; // Reset the gameWon flag
-    updatePlayerTurn(); // Update the player turn display
-}
 
 // Function to toggle dark mode
 function toggleDarkMode() {
@@ -67,8 +59,6 @@ function getCellColor(row, col) {
 
 // Function to handle player clicks on a cell, updating the game state
 function handleCellClick(event) {
-    if (gameWon) return;
-
     const clickedCell = event.target;
     const col = clickedCell.dataset.col;
 
@@ -77,11 +67,6 @@ function handleCellClick(event) {
         if (!board[row][col]) {
             // Update the game board with the player's disc color
             board[row][col] = currentPlayer;
-
-            // Check for a winning condition after each move
-            if (checkForWin(row, col)) {
-                gameWon = true;
-            }
 
             // Switch to the other player's turn
             currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
@@ -94,16 +79,6 @@ function handleCellClick(event) {
             break;
         }
     }
-}
-
-// Function to check for a winning condition after a move
-function checkForWin(row, col) {
-    return (
-        checkDirection(row, col, 0, 1) ||  // Horizontal
-        checkDirection(row, col, 1, 0) ||  // Vertical
-        checkDirection(row, col, 1, 1) ||  // Diagonal /
-        checkDirection(row, col, 1, -1)    // Diagonal \
-    );
 }
 
 // Function to check for a winning sequence in a specific direction
@@ -141,27 +116,20 @@ function checkDirection(row, col, rowChange, colChange) {
 
 // Function to restart the game
 function restartGame() {
-    // Reset the gameWon flag and switch back to the initial player
-    gameWon = false;
+    // Reset the currentPlayer to the initial player
     currentPlayer = 'red';
 
     // Reinitialize the game board and display
     initializeBoard();
 }
 
-// Function to update the player turn display and show the winner if the game is won
+// Function to update the player turn display
 function updatePlayerTurn() {
     const playerTurnElement = document.getElementById('playerTurn');
 
-    if (gameWon) {
-        // If the game is won, display the winner
-        playerTurnElement.innerHTML = `${currentPlayer.toUpperCase()} wins!`;
-    } else {
-        // If the game is still ongoing, update the turn information
-        playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
-    }
+    // Update the turn information
+    playerTurnElement.innerHTML = `Current Turn: <span class="${currentPlayer}-disc"></span> ${currentPlayer.toUpperCase()}`;
 }
 
 // Initialize the game board and display when the page loads
 initializeBoard();
-
