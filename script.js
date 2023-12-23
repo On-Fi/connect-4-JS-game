@@ -110,6 +110,7 @@ function checkDirection(row, col, rowChange, colChange) {
     const player = board[row][col];
 
     // Check in one direction
+    let count = 1;
     for (let i = 1; i < 4; i++) {
         const newRow = row + i * rowChange;
         const newCol = col + i * colChange;
@@ -118,9 +119,7 @@ function checkDirection(row, col, rowChange, colChange) {
             break;
         }
 
-        if (i === 3) {
-            return true; // Found a winning sequence
-        }
+        count++;
     }
 
     // Check in the opposite direction
@@ -132,10 +131,12 @@ function checkDirection(row, col, rowChange, colChange) {
             break;
         }
 
-        if (i === 3) {
-            return true; // Found a winning sequence
-        }
+        count++;
     }
+
+    // Return true if there are at least four discs in a row in the specified direction
+    return count >= 4;
+}
 
     // No winning sequence found in this direction
     return false;
