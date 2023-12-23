@@ -4,6 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    transition: background-color 0.3s ease;
 }
 
 #board {
@@ -20,7 +21,8 @@ body {
     cursor: pointer;
 }
 
-#restartButton {
+#restartButton,
+#toggleDarkMode {
     margin-top: 20px;
     padding: 10px;
     font-size: 16px;
