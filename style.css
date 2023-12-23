@@ -36,8 +36,6 @@ body {
     background-color: #777; /* Change background color on hover in dark mode */
 }
 
-
-
 /* Styles for the game board */
 #board {
     display: grid;
@@ -122,4 +120,4 @@ button:hover {
 /* Styles for the yellow player's disc */
 .yellow-disc {
     background-color: hsl(74, 100%, 53%);
-}
+} 
