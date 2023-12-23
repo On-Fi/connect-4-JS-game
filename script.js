@@ -7,6 +7,12 @@ let board = [];
 let currentPlayer = 'red';
 let gameWon = false;
 
+// Function to toggle dark mode
+function toggleDarkMode() {
+    const body = document.body;
+    body.classList.toggle('dark-mode'); // Toggle the 'dark-mode' class on the body
+}
+
 // Function to initialize the game board and display
 function initializeBoard() {
     // Create an empty 2D array to represent the game board
