@@ -7,11 +7,12 @@
     <title>Connect Four</title>
 </head>
 <body>
+    <div id="header">
+        <button onclick="restartGame()">Restart Game</button>
+        <button onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <div id="playerTurn"></div>
+    </div>
     <div id="board"></div>
-    <button id="restartButton" onclick="restartGame()">Restart Game</button>
-    <button id="toggleDarkMode" onclick="toggleDarkMode()">Toggle Dark Mode</button>
-    <div id="playerTurn"></div>
-
     <script src="script.js"></script>
 </body>
 </html>
