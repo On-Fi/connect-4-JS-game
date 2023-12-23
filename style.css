@@ -1,3 +1,4 @@
+/* Reset default styles and set up the base styles for the body */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -7,66 +8,90 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: #3498db;
+    background-color: #3498db; /* Set background color for the entire page */
 }
 
+/* Dark mode styles */
+.dark-mode {
+    background-color: #2c3e50; /* Dark background color */
+    color: #ecf0f1; /* Light text color */
+}
+
+.dark-mode #board {
+    background-color: #000; /* Black background color for the board */
+}
+
+
+.dark-mode .cell {
+    background-color: #333; /* Dark grey background color for the cells */
+    border: 2px solid #ecf0f1; /* Light border color for the cells */
+}
+
+/* Styles for the game board */
 #board {
     display: grid;
     grid-template-columns: repeat(7, 80px);
     grid-gap: 10px;
-    background-color: #ecf0f1;
+    background-color: #ecf0f1; /* Set background color for the game board */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow for depth */
 }
 
+/* Styles for each cell in the game board */
 .cell {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid #2c3e50;
-    background-color: #ecf0f1;
+    border: 2px solid #2c3e50; /* Set border color for the cell */
+    background-color: #ecf0f1; /* Set default background color for the cell */
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition on hover */
 }
 
+/* Hover effect for each cell */
 .cell:hover {
-    background-color: #bdc3c7;
+    background-color: #bdc3c7; /* Change background color on hover */
 }
 
+/* Additional overlay effect on hover */
 .cell:hover::after {
     content: '';
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.7);
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white overlay */
     position: absolute;
 }
 
+/* Header styles */
 #header {
     margin-bottom: 20px;
     text-align: center;
 }
 
+/* Button styles */
 button {
     padding: 10px;
     font-size: 16px;
     margin-right: 10px;
-    background-color: #2ecc71;
-    color: #ffffff;
+    background-color: #2ecc71; /* Set background color for buttons */
+    color: #ffffff; /* Set text color for buttons */
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out; /* Add a smooth transition on hover */
 }
 
+/* Hover effect for buttons */
 button:hover {
-    background-color: #27ae60;
+    background-color: #27ae60; /* Change background color on hover */
 }
 
+/* Disc styles for players (red and yellow) */
 .red-disc,
 .yellow-disc {
     display: inline-block;
@@ -78,10 +103,12 @@ button:hover {
     bottom: 5px; /* Adjust the bottom position */
 }
 
+/* Styles for the red player's disc */
 .red-disc {
     background-color: #e74c3c;
 }
 
+/* Styles for the yellow player's disc */
 .yellow-disc {
     background-color: #f39c12;
 }
