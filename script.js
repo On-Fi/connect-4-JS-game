@@ -11,15 +11,7 @@ let darkMode = false;
 // Function to initialize the game board and display
 function initializeBoard() {
     // Create an empty 2D array to represent the game board
-    board = [];
-
-    // Initialize each cell on the board to null
-    for (let row = 0; row < ROWS; row++) {
-        board[row] = [];
-        for (let col = 0; col < COLS; col++) {
-            board[row][col] = null;
-        }
-    }
+    board = Array.from({ length: ROWS }, () => Array(COLS).fill(null));
 
     // Draw the initial game board and update the player turn display
     drawBoard();
@@ -71,12 +63,7 @@ function drawBoard() {
 
 // Function to determine the color of a cell based on the player's disc color
 function getCellColor(row, col) {
-    if (board[row][col] === 'red') {
-        return darkMode ? 'green' : 'red';
-    } else if (board[row][col] === 'yellow') {
-        return darkMode ? 'blue' : 'yellow';
-    }
-    return '';
+    return board[row][col] === 'red' ? 'red' : 'yellow';
 }
 
 // Function to handle player clicks on a cell, updating the game state
@@ -125,7 +112,6 @@ function checkForWin(row, col) {
 // Function to check for a winning sequence in a specific direction
 function checkDirection(row, col, rowChange, colChange) {
     const player = board[row][col];
-    let count = 1;
 
     // Check in one direction
     for (let i = 1; i < 4; i++) {
@@ -136,7 +122,9 @@ function checkDirection(row, col, rowChange, colChange) {
             break;
         }
 
-        count++;
+        if (i === 3) {
+            return true; // Found a winning sequence
+        }
     }
 
     // Check in the opposite direction
@@ -148,11 +136,13 @@ function checkDirection(row, col, rowChange, colChange) {
             break;
         }
 
-        count++;
+        if (i === 3) {
+            return true; // Found a winning sequence
+        }
     }
 
-    // Return true if there are at least four discs in a row in the specified direction
-    return count >= 4;
+    // No winning sequence found in this direction
+    return false;
 }
 
 // Function to restart the game
