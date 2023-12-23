@@ -17,6 +17,7 @@ function initializeBoard() {
     }
 
     drawBoard();
+    updatePlayerTurn();
 }
 
 function drawBoard() {
@@ -37,8 +38,6 @@ function drawBoard() {
             boardElement.appendChild(cell);
         }
     }
-
-    updateDarkMode();
 }
 
 function handleCellClick(event) {
@@ -53,6 +52,7 @@ function handleCellClick(event) {
             checkForWin(row, col);
             currentPlayer = currentPlayer === 'red' ? 'yellow' : 'red';
             drawBoard();
+            updatePlayerTurn();
             break;
         }
     }
@@ -103,7 +103,6 @@ function checkDirection(row, col, rowChange, colChange) {
 
 function restartGame() {
     initializeBoard();
-    currentPlayer = 'red';
 }
 
 function toggleDarkMode() {
@@ -114,6 +113,11 @@ function toggleDarkMode() {
 function updateDarkMode() {
     document.body.style.backgroundColor = darkMode ? '#222' : '#fff';
     document.body.style.color = darkMode ? '#fff' : '#000';
+}
+
+function updatePlayerTurn() {
+    const playerTurnElement = document.getElementById('playerTurn');
+    playerTurnElement.textContent = `Current Turn: ${currentPlayer.toUpperCase()}`;
 }
 
 initializeBoard();
