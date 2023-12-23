@@ -31,13 +31,22 @@ function drawBoard() {
             cell.dataset.col = col;
 
             if (board[row][col]) {
-                cell.style.backgroundColor = board[row][col];
+                cell.style.backgroundColor = getCellColor(row, col);
             }
 
             cell.addEventListener('click', handleCellClick);
             boardElement.appendChild(cell);
         }
     }
+}
+
+function getCellColor(row, col) {
+    if (board[row][col] === 'red') {
+        return darkMode ? 'green' : 'red';
+    } else if (board[row][col] === 'yellow') {
+        return darkMode ? 'blue' : 'yellow';
+    }
+    return '';
 }
 
 function handleCellClick(event) {
@@ -122,10 +131,8 @@ function updateDarkMode() {
         const row = cell.dataset.row;
         const col = cell.dataset.col;
 
-        if (board[row][col] === 'red') {
-            cell.style.backgroundColor = darkMode ? 'green' : 'red';
-        } else if (board[row][col] === 'yellow') {
-            cell.style.backgroundColor = darkMode ? 'blue' : 'yellow';
+        if (board[row][col]) {
+            cell.style.backgroundColor = getCellColor(row, col);
         }
     });
 
