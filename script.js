@@ -151,4 +151,4 @@ function updatePlayerTurn() {
 
 // Initialize the game board and display when the page loads
 initializeBoard();
-</script>
+
